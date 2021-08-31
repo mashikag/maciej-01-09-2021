@@ -1,0 +1,5 @@
+*.css
+*.svg
+src/setupTests.ts
+src/setupProxy.js
+config-overrides.js

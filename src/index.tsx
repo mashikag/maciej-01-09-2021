@@ -1,17 +1,18 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { OrdersFeedProvider } from 'components/OrdersFeedContext/OrdersFeedProvider';
+import { ErrorNotifierProvider } from 'components/ErrorNotifierProvider';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+const ordersFeedWorker = new Worker('./worker', { name: 'ordersFeedWorker', type: 'module' });
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <StrictMode>
+    <ErrorNotifierProvider>
+      <OrdersFeedProvider ordersFeedWorker={ordersFeedWorker}>
+        <App />
+      </OrdersFeedProvider>
+    </ErrorNotifierProvider>
+  </StrictMode>,
+  document.getElementById('root'),
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
