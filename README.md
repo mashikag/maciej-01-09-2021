@@ -5,7 +5,7 @@ In a nutshell I decided to create a web worker that is used to communicate with 
 ## Webworker
 Webworker is a script that is being executed parallel to the js main thread in browser. 
 
-In the web app the webworker is used to maintain the websocket connection state, handle the messages, and prepare the orders data (resolve deltas, group, sort etc.) for the app to consume. That way it relieves the main thread from having to deal with all of this.
+In the web app the webworker is used to maintain the websocket connection state, handle the messages, and prepare the orders data (resolve deltas, group, sort etc.) for the app to consume. That way it relieves the main thread from having to deal with all of this on top of rendering the app.
 ![Zrzut ekranu 2021-09-1 o 00 11 16](https://user-images.githubusercontent.com/2019970/131582663-0905f18e-e103-4094-8ad0-2bf7b01e5c3c.png)
 
 ## State Management
