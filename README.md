@@ -27,7 +27,8 @@ Having explained the reasoning behind the two above providers. I think the role 
 
 ## Screenshots
 ![Zrzut ekranu 2021-09-1 o 02 09 37](https://user-images.githubusercontent.com/2019970/131593031-05114bfc-ed3e-4115-91aa-a853dd3b3403.png)
-![localhost_3000_(Pixel 2 XL) (4)](https://user-images.githubusercontent.com/2019970/131593027-32674bb5-d639-4e54-a67f-b0c7872b88f2.png)
+![localhost_3000_(Pixel 2 XL) (4)](https://user-images.githubusercontent.com/2019970/131593541-cbcc1a3d-25cf-46ff-b4c6-52bd5a74d7c3.png)
+
 
 
 
