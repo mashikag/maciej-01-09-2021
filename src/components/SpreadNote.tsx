@@ -1,15 +1,15 @@
 import { ReactNode } from 'react';
 import {
-  Box, colors, makeStyles, Typography,
+  Box, makeStyles, Typography,
 } from '@material-ui/core';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(({ palette, spacing }) => ({
   spreadContainer: {
-    paddingTop: 16,
-    color: colors.grey[600],
+    paddingTop: spacing(2),
+    color: palette.grey[400],
     textAlign: 'center',
   },
-});
+}));
 
 type SpreadContainerProps = {
   children: ReactNode

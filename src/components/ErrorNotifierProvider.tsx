@@ -1,9 +1,4 @@
-import {
-  colors,
-  makeStyles,
-  Snackbar,
-  SnackbarProps,
-} from '@material-ui/core';
+import { makeStyles, Snackbar, SnackbarProps } from '@material-ui/core';
 import {
   createContext,
   Key,
@@ -13,11 +8,12 @@ import {
   useState,
 } from 'react';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(({ palette: { error } }) => ({
   root: {
-    background: colors.red[800],
+    background: error.dark,
+    color: error.contrastText,
   },
-});
+}));
 
 const ErrorNotifierContext = createContext<{
   showError:(message:string) => void
@@ -73,6 +69,7 @@ export const ErrorNotifierProvider = ({ children }:ErrorNotifierProviderProps) =
     <ErrorNotifierContext.Provider
       value={{ showError }}
     >
+      {children}
       <Snackbar
         key={messageInfo ? messageInfo.key : undefined}
         ContentProps={{ classes: { root: classes.root } }}
@@ -83,7 +80,6 @@ export const ErrorNotifierProvider = ({ children }:ErrorNotifierProviderProps) =
         TransitionProps={{ onExited: handleExited }}
         message={messageInfo ? messageInfo.message : undefined}
       />
-      {children}
     </ErrorNotifierContext.Provider>
   );
 };

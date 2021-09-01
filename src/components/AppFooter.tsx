@@ -1,50 +1,45 @@
 import {
   Button,
-  colors,
   FormControlLabel,
   Grid,
   makeStyles,
   Switch,
 } from '@material-ui/core';
 import { ProductId } from 'resources/api/Cryptofacilities';
-import { SMALL_SCREEN_MEDIA_QUERY } from 'utils/styles';
 import { useOrdersFeedState, useOrdersFeedCaller } from './OrdersFeedContext';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(({ palette, spacing }) => ({
   footer: {
-    marginTop: 16,
-    marginBottom: 16,
-    [SMALL_SCREEN_MEDIA_QUERY]: {
-      paddingRight: 16,
-      paddingLeft: 16,
-    },
+    marginTop: spacing(2),
+    marginBottom: spacing(2),
+    paddingRight: spacing(2),
+    paddingLeft: spacing(2),
   },
   reviveButton: {
-    backgroundColor: colors.green[700],
+    backgroundColor: palette.success.main,
     '&:hover': {
-      backgroundColor: colors.green[900],
+      backgroundColor: palette.success.dark,
     },
   },
   killButton: {
-    backgroundColor: colors.red[700],
+    backgroundColor: palette.error.dark,
     '&:hover': {
-      backgroundColor: colors.red[900],
+      backgroundColor: palette.error.main,
     },
   },
-});
+}));
 
 const AppFooter = () => {
   const classes = useStyles();
   const { metadata: { hasError, productId, subscribed } } = useOrdersFeedState();
   const { kill, subscribe, unsubscribe } = useOrdersFeedCaller();
   return (
-    <Grid container direction="row" justifyContent="flex-end" className={classes.footer}>
+    <Grid container direction="row" justifyContent="space-between" className={classes.footer}>
       <Grid item>
         <FormControlLabel
           control={(
             <Switch
               checked={subscribed}
-              color="primary"
               onChange={(_, checked) => {
                 if (checked && !subscribed) {
                   subscribe(productId);
@@ -60,7 +55,7 @@ const AppFooter = () => {
       <Grid item>
         <Button
           variant="contained"
-          color="primary"
+          color="secondary"
           onClick={() => {
             if (hasError) {
               subscribe(ProductId.BitcoinUSD);
