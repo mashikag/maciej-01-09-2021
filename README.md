@@ -25,6 +25,10 @@ This interface should never change therefore it's important to seperate it out f
 ### OrdersFeedStateProvider
 Having explained the reasoning behind the two above providers. I think the role of this provider is self-explanatory. It is meant to provide the orders feed state (data) exposed by the webworker. When, how and why I am happy to discuss in the later stage. :)
 
+## Screenshots
+![Zrzut ekranu 2021-09-1 o 02 09 37](https://user-images.githubusercontent.com/2019970/131593031-05114bfc-ed3e-4115-91aa-a853dd3b3403.png)
+![localhost_3000_(Pixel 2 XL) (4)](https://user-images.githubusercontent.com/2019970/131593027-32674bb5-d639-4e54-a67f-b0c7872b88f2.png)
+
 
 
 ## Available Scripts
